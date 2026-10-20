@@ -77,7 +77,9 @@ public class EdurekaAllCoursesPage {
     }
   
     public void clickRPACategory() {
-        wait.until(ExpectedConditions.elementToBeClickable(roboticProcessAutomationCategory)).click();
+        WebElement category = wait.until(ExpectedConditions.visibilityOf(roboticProcessAutomationCategory));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", category);
+        wait.until(ExpectedConditions.elementToBeClickable(category)).click();
     }
     public boolean verifyPageNotFoundMessage() {
         return wait.until(ExpectedConditions.visibilityOf(pageNotFoundMessage)).isDisplayed();
