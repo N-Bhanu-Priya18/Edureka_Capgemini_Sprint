@@ -64,13 +64,18 @@ public class BaseClass extends CommonData
     
     @AfterClass(alwaysRun = true)
     public void closeApplication() {
+        if (driver != null) {
             driver.quit();
             Reporter.log("Browser closed successfully", true);
+        }
     }
     
     @BeforeMethod(alwaysRun = true)
     public void Navigation() throws IOException {
+        if (driver == null) {
+            throw new IllegalStateException("Browser was not initialized successfully");
+        }
         driver.get(getCData("url"));
         Reporter.log("Edureka application opened successfully", true);
-    } 
+    }
 }
