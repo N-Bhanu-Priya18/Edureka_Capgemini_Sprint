@@ -15,7 +15,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.Parameters;
 import automation.edureka.pages.EdurekaAllCoursesPage;
 import automation.edureka.pages.EdurekaAIPage;
@@ -50,12 +49,10 @@ public class BaseClass extends CommonData
             driver = new ChromeDriver();
         } else if (browser.trim().equalsIgnoreCase("edge")) {
             driver = new EdgeDriver();
-        } else if (browser.trim().equalsIgnoreCase("firefox")) {
-            System.setProperty("webdriver.firefox.logfile", "target/geckodriver.log");
-            FirefoxOptions options = new FirefoxOptions();
-            options.setBinary("C:\\Users\\bhanu\\.cache\\selenium\\firefox\\win64\\157.0.1\\firefox.exe");
-            driver = new FirefoxDriver(options);
-        } else {
+        }  else if (browser.trim().equalsIgnoreCase("firefox")) {
+            driver = new FirefoxDriver();
+        }
+        else {
             throw new IllegalArgumentException("Invalid browser: " + browser);
         }
         driver.manage().window().maximize();
