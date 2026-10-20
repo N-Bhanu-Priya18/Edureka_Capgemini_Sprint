@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
 <suite name="Jenkins Firefox Test Suite">
-    <test name="Firefox Tests">
+    <test name="ChromeTests">
         <parameter name="browser" value="firefox"/>
         <packages>
             <package name="automation.edureka.tests.*"/>

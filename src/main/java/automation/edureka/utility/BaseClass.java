@@ -16,7 +16,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import automation.edureka.pages.EdurekaAllCoursesPage;
 import automation.edureka.pages.EdurekaAIPage;
 import automation.edureka.pages.EdurekaLoginPage;
@@ -51,9 +50,7 @@ public class BaseClass extends CommonData
         } else if (browser.trim().equalsIgnoreCase("edge")) {
             driver = new EdgeDriver();
         }  else if (browser.trim().equalsIgnoreCase("firefox")) {
-            FirefoxOptions options = new FirefoxOptions();
-            options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-            driver = new FirefoxDriver(options);
+            driver = new FirefoxDriver();
         }
         else {
             throw new IllegalArgumentException("Invalid browser: " + browser);
