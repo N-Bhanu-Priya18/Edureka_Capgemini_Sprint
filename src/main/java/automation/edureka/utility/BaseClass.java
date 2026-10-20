@@ -15,6 +15,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.Parameters;
 import automation.edureka.pages.EdurekaAllCoursesPage;
 import automation.edureka.pages.EdurekaAIPage;
@@ -50,7 +51,10 @@ public class BaseClass extends CommonData
         } else if (browser.trim().equalsIgnoreCase("edge")) {
             driver = new EdgeDriver();
         } else if (browser.trim().equalsIgnoreCase("firefox")) {
-            driver = new FirefoxDriver();
+            System.setProperty("webdriver.firefox.logfile", "target/geckodriver.log");
+            FirefoxOptions options = new FirefoxOptions();
+            options.setBinary("C:\\Users\\bhanu\\.cache\\selenium\\firefox\\win64\\157.0.1\\firefox.exe");
+            driver = new FirefoxDriver(options);
         } else {
             throw new IllegalArgumentException("Invalid browser: " + browser);
         }
@@ -59,7 +63,7 @@ public class BaseClass extends CommonData
         edurekaHomePage = new EdurekaHomePage(driver);
         edurekaLoginPage = new EdurekaLoginPage(driver);
         edurekaAIPage = new EdurekaAIPage(driver);
-        edurekaAllCoursesPage = new EdurekaAllCoursesPage(driver);      
+        edurekaAllCoursesPage = new EdurekaAllCoursesPage(driver);
     }
     
     @AfterClass(alwaysRun = true)
