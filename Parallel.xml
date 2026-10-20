@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ParallelSuite" parallel="classes" thread-count="3">
+    <test name="ParallelEdurekaTests">
+        <classes>
+            <class name="automation.edureka.tests.edurekalogin.EdurekaLoginTest"/>
+            <class name="automation.edureka.tests.edurekaai.EdurekaAITest"/>
+            <class name="automation.edureka.tests.edurekaallcourses.EdurekaAllCoursesTest"/>
+        </classes>
+    </test>
+</suite>
