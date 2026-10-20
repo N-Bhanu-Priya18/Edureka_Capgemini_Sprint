@@ -52,11 +52,12 @@ public class EdurekaAllCoursesTest extends BaseClass {
 
     // TC_AC_004: Verify Robotic Process Automation category behavior
     @Test(groups = {"functional", "negative"})
-    public void TC_AC_004() throws IOException {
+    public void TC_AC_004() throws IOException,InterruptedException {
         Reporter.log("TC_AC_004: Verify Robotic Process Automation category behavior", true);
         try {
             edurekaHomePage.clickAllCoursesLink();
             edurekaAllCoursesPage.clickRPACategory();
+            Thread.sleep(2000);
             Assert.assertTrue(edurekaAllCoursesPage.verifyPageNotFoundMessage(), "Page not found message is not displayed");
             Reporter.log("TC_AC_004 passed: Page not found message is displayed", true);
         } finally {
