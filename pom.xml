@@ -193,14 +193,14 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>CrossBrowser.xml</suiteXmlFile>
+                                <suiteXmlFile>JenkinsCrossBrowser.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
         </profile>
-
+        
     </profiles>
 
 </project>
