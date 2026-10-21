@@ -45,22 +45,28 @@ public class BaseClass extends CommonData
     @BeforeClass(alwaysRun = true)
     public void launchApplication(@Optional("chrome") String browser) throws IOException {
         testData = new TestData();
+
+        System.out.println("Starting browser: " + browser);
+
         if (browser.trim().equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
         } else if (browser.trim().equalsIgnoreCase("edge")) {
             driver = new EdgeDriver();
-        }  else if (browser.trim().equalsIgnoreCase("firefox")) {
+        } else if (browser.trim().equalsIgnoreCase("firefox")) {
             driver = new FirefoxDriver();
-        }
-        else {
+        } else {
             throw new IllegalArgumentException("Invalid browser: " + browser);
         }
+
         driver.manage().window().maximize();
         PageFactory.initElements(driver, this);
+
         edurekaHomePage = new EdurekaHomePage(driver);
         edurekaLoginPage = new EdurekaLoginPage(driver);
         edurekaAIPage = new EdurekaAIPage(driver);
         edurekaAllCoursesPage = new EdurekaAllCoursesPage(driver);
+
+        System.out.println(browser + " browser started successfully");
     }
     
     @AfterClass(alwaysRun = true)
