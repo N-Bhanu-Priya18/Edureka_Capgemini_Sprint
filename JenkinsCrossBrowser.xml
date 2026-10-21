@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="Jenkins Firefox Test Suite">
+<suite name="Jenkins Cross Browser Test Suite" parallel="tests" thread-count="2">
+
     <test name="ChromeTests">
-        <parameter name="browser" value="firefox"/>
-        <packages>
-            <package name="automation.edureka.tests.*"/>
-        </packages>
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="automation.edureka.tests.edurekalogin.EdurekaLoginTest"/>
+        </classes>
     </test>
+
+    <test name="FirefoxTests">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="automation.edureka.tests.edurekaai.EdurekaAITest"/>
+        </classes>
+    </test>
+
 </suite>

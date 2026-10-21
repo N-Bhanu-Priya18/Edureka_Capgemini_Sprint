@@ -99,7 +99,8 @@ public class EdurekaAIPage {
     }
     public void scrollToEnquiryForm() {
         wait.until(ExpectedConditions.visibilityOf(emailField));
-        new org.openqa.selenium.interactions.Actions(driver).scrollToElement(emailField).perform();
+        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(
+            "arguments[0].scrollIntoView({behavior:'instant', block:'center'});", emailField);
         wait.until(ExpectedConditions.elementToBeClickable(emailField));
     }
     public boolean verifyEmailValidation() {
