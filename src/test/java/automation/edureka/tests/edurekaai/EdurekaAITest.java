@@ -58,7 +58,7 @@ public class EdurekaAITest extends BaseClass {
 
     // TC_AI_004: Verify enquiry form rejects invalid email
     @Test(groups = {"negative", "regression"})
-    public void TC_AI_04_verifyInvalidEmailIsRejected() throws EncryptedDocumentException, IOException {
+    public void TC_AI_04() throws EncryptedDocumentException, IOException {
         Reporter.log("TC_AI_04: Verify enquiry form rejects invalid email", true);
         try {
             edurekaHomePage.clickAILink();
@@ -76,7 +76,7 @@ public class EdurekaAITest extends BaseClass {
 
     // TC_AI_005: Verify AI page at different browser widths
 //    @Test(groups = {"functional", "regression"})
-//    public void TC_AI_05_verifyAIPageAtDifferentWidths() {
+//    public void TC_AI_05() {
 //        Reporter.log("TC_AI_05: Verify AI page content at different browser widths", true);
 //        edurekaHomePage.clickAILink();
 //        edurekaAIPage.setBrowserWidth(1024);
@@ -88,7 +88,7 @@ public class EdurekaAITest extends BaseClass {
 
     // TC_AI_006: Verify AI courses after page refresh
 //    @Test(groups = {"functional", "regression"})
-//    public void TC_AI_06_verifyAICoursesAfterRefresh() throws InterruptedException {
+//    public void TC_AI_06() throws InterruptedException {
 //        Reporter.log("TC_AI_06: Verify AI courses after page refresh", true);
 //        edurekaHomePage.clickAILink();
 //        Assert.assertTrue(edurekaAIPage.verifyAIPage(), "AI page did not open");
